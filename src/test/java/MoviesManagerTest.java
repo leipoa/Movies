@@ -20,13 +20,20 @@ public class MoviesManagerTest {
 
     @Test
     public void testFindLast() {
-        MoviesManager manager = new MoviesManager();
+        MoviesManager manager = new MoviesManager(10);
 
         manager.add("1");
         manager.add("2");
         manager.add("3");
+        manager.add("4");
+        manager.add("5");
+        manager.add("6");
+        manager.add("7");
+        manager.add("8");
+        manager.add("9");
+        manager.add("10");
 
-        String[] expected = {"3"};
+        String[] expected = { "10", "9", "8", "7", "6", "5", "4", "3", "2", "1"};
         String[] actual = manager.findLast();
 
         Assertions.assertArrayEquals(expected, actual);
