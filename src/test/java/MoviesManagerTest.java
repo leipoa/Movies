@@ -34,7 +34,7 @@ public class MoviesManagerTest {
         manager.add("10");
 
         String[] expected = {"10", "9", "8", "7", "6", "5", "4", "3", "2", "1"};
-        String[] actual = manager.findLast();
+        String[] actual = manager.findLast(10);
 
         Assertions.assertArrayEquals(expected, actual);
     }
@@ -55,7 +55,7 @@ public class MoviesManagerTest {
 
 
         String[] expected = {"9", "8", "7", "6", "5", "4", "3", "2", "1"};
-        String[] actual = manager.findLast();
+        String[] actual = manager.findLast(10);
 
         Assertions.assertArrayEquals(expected, actual);
 
@@ -63,7 +63,7 @@ public class MoviesManagerTest {
 
     @Test
     public void testFindLastAboveLimit() {
-        MoviesManager manager = new MoviesManager(11);
+        MoviesManager manager = new MoviesManager(10);
 
         manager.add("1");
         manager.add("2");
@@ -77,8 +77,8 @@ public class MoviesManagerTest {
         manager.add("10");
         manager.add("11");
 
-        String[] expected = {"11", "10", "9", "8", "7", "6", "5", "4", "3", "2", "1"};
-        String[] actual = manager.findLast();
+        String[] expected = {"11", "10", "9", "8", "7", "6", "5", "4", "3", "2"};
+        String[] actual = manager.findLast(10);
 
         Assertions.assertArrayEquals(expected, actual);
 
